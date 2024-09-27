@@ -1,0 +1,4 @@
+
+// create schema then migrate your db then create your client
+//npx prisma migrate dev
+//npx prisma generate
