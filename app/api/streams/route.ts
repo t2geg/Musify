@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
                 type: "Youtube",
                 title: res.title ?? "can't find video",
                 bigImg: thumbnails[thumbnails.length - 1].url ?? "https://www.istockphoto.com/photos/music",
-                smallImg: thumbnails.length > 1 ? thumbnails[thumbnails.length - 2].url : thumbnails[thumbnails.length - 1].url ?? "https://www.istockphoto.com/photos/music"
+                smallImg: thumbnails.length > 1 ? thumbnails[thumbnails.length - 2].url : thumbnails[thumbnails.length - 1].url ?? "https://www.istockphoto.com/photos/music",
             }
 
         })
@@ -64,9 +64,9 @@ export async function GET(req: NextRequest) {
 
     const streams = await prismaClient.stream.findMany({
         where: {
-            userId: creatorId ?? ""
+            userId: creatorId ?? "",
         }
-    })
+    });
 
     return NextResponse.json({
         streams
@@ -77,3 +77,5 @@ export async function GET(req: NextRequest) {
 
 
 // This api route is for stream
+
+// Error while fetching the streams it is not returning the upvotes
